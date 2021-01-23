@@ -10,12 +10,13 @@ import UIKit
 class ViewController: UIViewController {
     private let privacyAuthentication = PrivacyAuthentication()
     private let cameraSetUp = CameraSetUp()
-    
-    let resultView = ResultView.shared
+    private let resultView = ResultView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         privacyAuthentication.cameraAuthentication()
+        
+        cameraSetUp.setLabelDelegate = self
         
         cameraSetUp.setUpCapture(for: .video, preset: .photo)
         cameraSetUp.videoDataOutput()
@@ -27,3 +28,21 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: SetLabelDelegate {
+//    var text: String {
+//        get {
+//            return ""
+//        }
+//        set {
+//            DispatchQueue.main.async {
+//                self.resultView.resultLabel.text = newValue
+//            }
+//        }
+//    }
+    
+    func setText(text: String) {
+        DispatchQueue.main.async {
+            self.resultView.resultLabel.text = "Result is: \(text)"
+        }
+    }
+}

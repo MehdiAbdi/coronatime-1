@@ -9,17 +9,23 @@ import Foundation
 import UIKit
 import AVFoundation
 
+protocol SetLabelDelegate {
+//    var text: String { get set }
+    func setText(text: String)
+}
+
 fileprivate enum Constant: CGFloat {
     case x = 0.0
     case y = -100.0
 }
 
 class CameraSetUp: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+    var setLabelDelegate: SetLabelDelegate?
+    
     private let videoQueue = DispatchQueue(label: "videoQueue")
     private let captureSession = AVCaptureSession()
     private let deviceFrame = DeviceFrame()
     let imageRecognition = ImageRecognition()
-    let resultView = ResultView.shared
 
     /**
      - Parameters:
@@ -63,10 +69,7 @@ class CameraSetUp: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
         imageRecognition.configuration(pixelBuffer: pixelBuffer)
-        
-        DispatchQueue.main.async {
-            self.resultView.resultLabel.text = "Result Is: \(self.imageRecognition.imageMatch)"
-        }
-        
+//        setLabelDelegate?.text = imageRecognition.imageMatch
+        setLabelDelegate?.setText(text: imageRecognition.imageMatch)
     }
 }

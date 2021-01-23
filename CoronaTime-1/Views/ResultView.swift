@@ -9,10 +9,6 @@ import UIKit
 
 class ResultView {
     
-    static let shared = ResultView()
-    
-    private init() {}
-    
     var resultLabel: UILabel = {
        var result = UILabel()
         result.text = "Result is:"
