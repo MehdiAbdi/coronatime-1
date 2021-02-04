@@ -10,6 +10,9 @@
 		C10D9DAC25A4958E00C46211 /* PrivacyAuthenticationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D9DAB25A4958E00C46211 /* PrivacyAuthenticationTest.swift */; };
 		C12106F325B845BD004B2CA5 /* MaskClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C12106F225B845BD004B2CA5 /* MaskClassifier.mlmodel */; };
 		C12106F925B848A4004B2CA5 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12106F825B848A4004B2CA5 /* ResultView.swift */; };
+		C132BAED25C5A6E100F283DC /* CubeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C132BAEC25C5A6E100F283DC /* CubeController.swift */; };
+		C14835D325C14B7D002308AA /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C14835D225C14B7D002308AA /* art.scnassets */; };
+		C14835DC25C17F9D002308AA /* SceneCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14835DB25C17F9D002308AA /* SceneCreator.swift */; };
 		C15304E225A58A980028FE86 /* CameraSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15304E125A58A980028FE86 /* CameraSetUp.swift */; };
 		C15304EA25A58BA90028FE86 /* DeviceFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15304E925A58BA90028FE86 /* DeviceFrame.swift */; };
 		C1E5B15F25AB794F0062B487 /* ImageRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E5B15E25AB794F0062B487 /* ImageRecognition.swift */; };
@@ -43,6 +46,9 @@
 		C10D9DAB25A4958E00C46211 /* PrivacyAuthenticationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAuthenticationTest.swift; sourceTree = "<group>"; };
 		C12106F225B845BD004B2CA5 /* MaskClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MaskClassifier.mlmodel; sourceTree = "<group>"; };
 		C12106F825B848A4004B2CA5 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		C132BAEC25C5A6E100F283DC /* CubeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeController.swift; sourceTree = "<group>"; };
+		C14835D225C14B7D002308AA /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		C14835DB25C17F9D002308AA /* SceneCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCreator.swift; sourceTree = "<group>"; };
 		C15304E125A58A980028FE86 /* CameraSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSetUp.swift; sourceTree = "<group>"; };
 		C15304E925A58BA90028FE86 /* DeviceFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFrame.swift; sourceTree = "<group>"; };
 		C1E5B15E25AB794F0062B487 /* ImageRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognition.swift; sourceTree = "<group>"; };
@@ -111,6 +117,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C14835D725C14B90002308AA /* 3DScene */ = {
+			isa = PBXGroup;
+			children = (
+				C14835D225C14B7D002308AA /* art.scnassets */,
+				C14835DB25C17F9D002308AA /* SceneCreator.swift */,
+				C132BAEC25C5A6E100F283DC /* CubeController.swift */,
+			);
+			path = 3DScene;
+			sourceTree = "<group>";
+		};
 		C155F2C625BAC6F800120E97 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +192,7 @@
 				C12106F725B84869004B2CA5 /* Views */,
 				C1FAA15425A1B7F9006E2E31 /* Helper */,
 				C171204225A4E1C800FB4919 /* Camera */,
+				C14835D725C14B90002308AA /* 3DScene */,
 			);
 			path = "CoronaTime-1";
 			sourceTree = "<group>";
@@ -312,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1FAA12E25A1A72D006E2E31 /* LaunchScreen.storyboard in Resources */,
+				C14835D325C14B7D002308AA /* art.scnassets in Resources */,
 				C1FAA12B25A1A72D006E2E31 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,11 +356,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1FAA15625A1B82E006E2E31 /* PrivacyAuthentication.swift in Sources */,
+				C132BAED25C5A6E100F283DC /* CubeController.swift in Sources */,
 				C1FAA12625A1A72C006E2E31 /* ViewController.swift in Sources */,
 				C12106F925B848A4004B2CA5 /* ResultView.swift in Sources */,
 				C15304E225A58A980028FE86 /* CameraSetUp.swift in Sources */,
 				C1FAA12225A1A72C006E2E31 /* AppDelegate.swift in Sources */,
 				C1FAA12425A1A72C006E2E31 /* SceneDelegate.swift in Sources */,
+				C14835DC25C17F9D002308AA /* SceneCreator.swift in Sources */,
 				C1E5B15F25AB794F0062B487 /* ImageRecognition.swift in Sources */,
 				C15304EA25A58BA90028FE86 /* DeviceFrame.swift in Sources */,
 				C12106F325B845BD004B2CA5 /* MaskClassifier.mlmodel in Sources */,

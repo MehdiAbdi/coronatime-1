@@ -10,8 +10,7 @@ import UIKit
 import AVFoundation
 
 protocol SetLabelDelegate {
-//    var text: String { get set }
-    func setText(text: String)
+    func setLabel(text: String)
 }
 
 fileprivate enum Constant: CGFloat {
@@ -19,13 +18,13 @@ fileprivate enum Constant: CGFloat {
     case y = -100.0
 }
 
-class CameraSetUp: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
-    var setLabelDelegate: SetLabelDelegate?
+class CameraSetUp: ImageRecognition, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     private let videoQueue = DispatchQueue(label: "videoQueue")
     private let captureSession = AVCaptureSession()
     private let deviceFrame = DeviceFrame()
-    let imageRecognition = ImageRecognition()
+
+    var setLabelDelegate: SetLabelDelegate?
 
     /**
      - Parameters:
@@ -67,9 +66,12 @@ class CameraSetUp: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        configuration(pixelBuffer: pixelBuffer)
         
-        imageRecognition.configuration(pixelBuffer: pixelBuffer)
-//        setLabelDelegate?.text = imageRecognition.imageMatch
-        setLabelDelegate?.setText(text: imageRecognition.imageMatch)
+        labelDelegateCaller()
+    }
+    
+    func labelDelegateCaller() {
+        setLabelDelegate?.setLabel(text: imageMatch)
     }
 }

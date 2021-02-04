@@ -17,5 +17,9 @@ struct DeviceFrame {
     var heightDevice: CGFloat {
         uiScreen.height * 0.8
     }
+    
+    var sceneHeight: CGFloat {
+        uiScreen.height * 0.5
+    }
 }
 

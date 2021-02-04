@@ -8,7 +8,7 @@
 import Foundation
 import Vision
 
-class ImageRecognition {
+class ImageRecognition: NSObject {
     private let configurationModel = MLModelConfiguration()
     var imageMatch = String()
     
@@ -29,5 +29,4 @@ class ImageRecognition {
         
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }
-    
 }
