@@ -11,13 +11,13 @@ import SceneKit
 class SceneCreator {
     let cam = CameraSetUp()
     
-    private let scene = SCNScene(named: "art.scnassets/Cube.scn")
+    private let scene = SCNScene(named: "art.scnassets/CoronaNoPencile.scn")
     private let sceneHeight = DeviceFrame().sceneHeight
     
     private let sceneView: SCNView = {
         let view = SCNView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.allowsCameraControl = true
+        view.allowsCameraControl = false
         view.showsStatistics = true
         return view
     }()

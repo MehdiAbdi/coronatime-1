@@ -12,39 +12,40 @@ class ViewController: UIViewController {
     private let cameraSetUp = CameraSetUp()
     private let resultView = ResultView()
     private let cube = CubeController()
+    private var recognitionResult = RecognitionResult.sharedResult
+    
+    let notification = NotificationCenter.default
+    let notificationName = Notification.Name.recognitionResult
     
     override func viewDidLoad() {
         super.viewDidLoad()
         privacyAuthentication.cameraAuthentication()
         
-        cameraSetUp.setLabelDelegate = self
         cameraSetUp.setUpCapture(for: .video, preset: .photo)
         cameraSetUp.videoDataOutput()
         cameraSetUp.videoPreviewLayer(for: view)
         
         cube.setUpSceneCreator(contentView: view)
         cube.puaseCubeAnimation()
-        cube.changeCubeColor()
+        cube.changeCameraPosition()
         
         view.addSubview(resultView.resultLabel)
         resultView.constraintResultView(view)
-        
-        
-//        view.addSubview(resultView.changeColorBTN)
-//        resultView.constraintButton(view)
-//        resultView.changeColorBTN.addTarget(self, action: #selector(press), for: .touchUpInside)
+
+        notificationObserver()
     }
     
-//    @objc func press() {
-//        cube.changeCubeColor()
-//        cube.cubeColor.toggle()
-//    }
-}
-
-extension ViewController: SetLabelDelegate {
-    func setLabel(text: String) {
+    func notificationObserver() {
+        notification.addObserver(self,
+                                 selector: #selector(ViewController.updateLabel(notification:)),
+                                 name: notificationName, object: nil)
+    }
+    
+    @objc func updateLabel(notification: Notification) {
+        guard let result = notification.userInfo?["result"] as? String else { return }
+        
         DispatchQueue.main.async {
-            self.resultView.resultLabel.text = text
+            self.resultView.resultLabel.text = result
         }
     }
 }
