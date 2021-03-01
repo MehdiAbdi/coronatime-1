@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     private let cameraSetUp = CameraSetUp()
     private let resultView = ResultView()
     private let cube = CubeController()
-    private var recognitionResult = RecognitionResult.sharedResult
     
     let notification = NotificationCenter.default
     let notificationName = Notification.Name.recognitionResult
@@ -26,7 +25,6 @@ class ViewController: UIViewController {
         cameraSetUp.videoPreviewLayer(for: view)
         
         cube.setUpSceneCreator(contentView: view)
-        cube.puaseCubeAnimation()
         cube.changeCameraPosition()
         
         view.addSubview(resultView.resultLabel)
@@ -38,7 +36,8 @@ class ViewController: UIViewController {
     func notificationObserver() {
         notification.addObserver(self,
                                  selector: #selector(ViewController.updateLabel(notification:)),
-                                 name: notificationName, object: nil)
+                                 name: notificationName,
+                                 object: nil)
     }
     
     @objc func updateLabel(notification: Notification) {
@@ -47,5 +46,11 @@ class ViewController: UIViewController {
         DispatchQueue.main.async {
             self.resultView.resultLabel.text = result
         }
+    }
+    
+    // Removing all observer when viewController Deinitialized
+    // But in this case viewController won't be deinitilaized so basically it's useless😅
+    deinit {
+        notification.removeObserver(self)
     }
 }

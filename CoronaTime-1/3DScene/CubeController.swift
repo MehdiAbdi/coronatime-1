@@ -29,7 +29,23 @@ class CubeController: SceneCreator {
         else { return nil }
         return node
     }
+}
+
+//MARK: - Extension
+extension CubeController {
+    func changeCameraPosition() {
+        cameraNode?.position = SCNVector3(0, 21, -10)
+        cameraNode?.scale = SCNVector3(10, 10, 10)
+    }
     
+    func setUpSceneCreator(contentView: UIView) {
+        sceneInitializer(contentView)
+        setUpSceneConstraint(contentView)
+        notificationObserver()
+    }
+}
+
+extension CubeController {
     private func notificationObserver() {
         notification.addObserver(self, selector: #selector(changeCubeColor(notification:)), name: notificationName, object: nil)
     }
@@ -40,21 +56,5 @@ class CubeController: SceneCreator {
         } else {
             cubeNode?.runAction(SCNAction.rotateTo(x: 0, y: 0, z: 0, duration: 0.4))
         }
-    }
-
-    //MARK:- Use sceneCreator's property accessor for adding functionality to 3D Cube and scene
-    func puaseCubeAnimation() {
-//        cubeNode?.removeAnimation(forKey: cubeScaleAnimationName)
-    }
-    
-    func changeCameraPosition() {
-        cameraNode?.position = SCNVector3(0, 21, -10)
-        cameraNode?.scale = SCNVector3(10, 10, 10)
-    }
-    
-    func setUpSceneCreator(contentView: UIView) {
-        sceneInitializer(contentView)
-        setUpSceneConstraint(contentView)
-        notificationObserver()
     }
 }
