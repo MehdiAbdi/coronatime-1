@@ -5,27 +5,17 @@
 //  Created by Mehdi Abdi on 1/6/21.
 //
 
-import Foundation
 import UIKit
 import AVFoundation
 
-protocol SetLabelDelegate {
-    func setLabel(text: String)
-}
-
-fileprivate enum Constant: CGFloat {
-    case x = 0.0
-    case y = -100.0
-}
-
 class CameraSetUp: ImageRecognition, AVCaptureVideoDataOutputSampleBufferDelegate {
-    
     private let videoQueue = DispatchQueue(label: "videoQueue")
     private let captureSession = AVCaptureSession()
     private let deviceFrame = DeviceFrame()
-
-    var setLabelDelegate: SetLabelDelegate?
-
+    
+    private let notificationCenter = NotificationCenter.default
+    private let notificationName = Notification.Name.recognitionResult
+    
     /**
      - Parameters:
         - device: **Video** recommended
@@ -58,8 +48,8 @@ class CameraSetUp: ImageRecognition, AVCaptureVideoDataOutputSampleBufferDelegat
     func videoPreviewLayer(for view: UIView) {
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         view.layer.addSublayer(previewLayer)
-        previewLayer.frame = CGRect(x:Constant.x.rawValue,
-                                    y: Constant.y.rawValue,
+        previewLayer.frame = CGRect(x: 0.0,
+                                    y: -100.0,
                                     width: deviceFrame.widthDevice,
                                     height: deviceFrame.heightDevice)
     }
@@ -68,10 +58,6 @@ class CameraSetUp: ImageRecognition, AVCaptureVideoDataOutputSampleBufferDelegat
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         configuration(pixelBuffer: pixelBuffer)
         
-        labelDelegateCaller()
-    }
-    
-    func labelDelegateCaller() {
-        setLabelDelegate?.setLabel(text: imageMatch)
+        notificationCenter.post(name: notificationName, object: nil, userInfo: ["result" : resultRecognition])
     }
 }

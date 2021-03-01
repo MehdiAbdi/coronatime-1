@@ -23,19 +23,4 @@ class ResultView {
         resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         resultLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
     }
-    
-//    var changeColorBTN: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.frame  = CGRect(x: 100, y: 500, width: 100, height: 100)
-//        button.setTitle("Press", for: .normal)
-//        
-//        return button
-//    }()
-//    
-//    func constraintButton(_ view: UIView) {
-//        changeColorBTN.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -450).isActive = true
-//        changeColorBTN.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        changeColorBTN.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-//    }
 }

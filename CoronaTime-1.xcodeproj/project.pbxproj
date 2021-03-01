@@ -15,6 +15,8 @@
 		C14835DC25C17F9D002308AA /* SceneCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14835DB25C17F9D002308AA /* SceneCreator.swift */; };
 		C15304E225A58A980028FE86 /* CameraSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15304E125A58A980028FE86 /* CameraSetUp.swift */; };
 		C15304EA25A58BA90028FE86 /* DeviceFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15304E925A58BA90028FE86 /* DeviceFrame.swift */; };
+		C1BA0CD025E22E0800D08DA8 /* NotificationName+recognitionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA0CCF25E22E0800D08DA8 /* NotificationName+recognitionResult.swift */; };
+		C1BA0CDB25E23CED00D08DA8 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA0CDA25E23CED00D08DA8 /* SceneView.swift */; };
 		C1E5B15F25AB794F0062B487 /* ImageRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E5B15E25AB794F0062B487 /* ImageRecognition.swift */; };
 		C1FAA12225A1A72C006E2E31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FAA12125A1A72C006E2E31 /* AppDelegate.swift */; };
 		C1FAA12425A1A72C006E2E31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FAA12325A1A72C006E2E31 /* SceneDelegate.swift */; };
@@ -51,6 +53,8 @@
 		C14835DB25C17F9D002308AA /* SceneCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCreator.swift; sourceTree = "<group>"; };
 		C15304E125A58A980028FE86 /* CameraSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSetUp.swift; sourceTree = "<group>"; };
 		C15304E925A58BA90028FE86 /* DeviceFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFrame.swift; sourceTree = "<group>"; };
+		C1BA0CCF25E22E0800D08DA8 /* NotificationName+recognitionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+recognitionResult.swift"; sourceTree = "<group>"; };
+		C1BA0CDA25E23CED00D08DA8 /* SceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
 		C1E5B15E25AB794F0062B487 /* ImageRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognition.swift; sourceTree = "<group>"; };
 		C1FAA11E25A1A72C006E2E31 /* CoronaTime-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoronaTime-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1FAA12125A1A72C006E2E31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				C14835D225C14B7D002308AA /* art.scnassets */,
 				C14835DB25C17F9D002308AA /* SceneCreator.swift */,
 				C132BAEC25C5A6E100F283DC /* CubeController.swift */,
+				C1BA0CDA25E23CED00D08DA8 /* SceneView.swift */,
 			);
 			path = 3DScene;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			children = (
 				C15304E125A58A980028FE86 /* CameraSetUp.swift */,
 				C1E5B15E25AB794F0062B487 /* ImageRecognition.swift */,
+				C1BA0CCF25E22E0800D08DA8 /* NotificationName+recognitionResult.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -359,8 +365,10 @@
 				C132BAED25C5A6E100F283DC /* CubeController.swift in Sources */,
 				C1FAA12625A1A72C006E2E31 /* ViewController.swift in Sources */,
 				C12106F925B848A4004B2CA5 /* ResultView.swift in Sources */,
+				C1BA0CDB25E23CED00D08DA8 /* SceneView.swift in Sources */,
 				C15304E225A58A980028FE86 /* CameraSetUp.swift in Sources */,
 				C1FAA12225A1A72C006E2E31 /* AppDelegate.swift in Sources */,
+				C1BA0CD025E22E0800D08DA8 /* NotificationName+recognitionResult.swift in Sources */,
 				C1FAA12425A1A72C006E2E31 /* SceneDelegate.swift in Sources */,
 				C14835DC25C17F9D002308AA /* SceneCreator.swift in Sources */,
 				C1E5B15F25AB794F0062B487 /* ImageRecognition.swift in Sources */,
